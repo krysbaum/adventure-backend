@@ -15,4 +15,9 @@ class AdventuresController < ApplicationController
     )
     render :show
   end
+
+  def show
+    @adventure = Adventure.find_by(id: params[:id])
+    render :show
+  end
 end
