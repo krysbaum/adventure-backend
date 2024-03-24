@@ -33,4 +33,10 @@ class AdventuresController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @adventure = Adventure.find_by(id: params[:id])
+    @adventure.destroy
+    render json: { message: "Deleted post!" }
+  end
 end
