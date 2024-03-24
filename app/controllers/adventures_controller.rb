@@ -20,4 +20,17 @@ class AdventuresController < ApplicationController
     @adventure = Adventure.find_by(id: params[:id])
     render :show
   end
+
+  def update
+    @adventure = Adventure.find_by(id: params[:id])
+    @adventure.update(
+      name: params[:name] || @adventure.name,
+      description: params[:description] || @adventure.description,
+      rating: params[:rating] || @adventure.rating,
+      location: params[:location] || @adventure.location,
+      category: params[:category] || @adventure.category,
+      date: params[:date] || @adventure.date,
+    )
+    render :show
+  end
 end
